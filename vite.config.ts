@@ -33,17 +33,26 @@ export default defineConfig(env => {
                 dirs: ['src/components/global'] // 自动注册全局组件目录
             })
         ],
+        base: './',
         build: {
-            chunkSizeWarningLimit: 500,
+            chunkSizeWarningLimit: 1200,
             minify: 'esbuild',
             cssCodeSplit: true, // 如果设置为false，整个项目中的所有 CSS 将被提取到一个 CSS 文件中
-            reportCompressedSize: false // 启用/禁用 gzip 压缩大小报告。压缩大型输出文件可能会很慢，因此禁用该功能可能会提高大型项目的构建性能。
+            reportCompressedSize: false, // 启用/禁用 gzip 压缩大小报告。压缩大型输出文件可能会很慢，因此禁用该功能可能会提高大型项目的构建性能。
+            rollupOptions: {
+                output: {
+                    chunkFileNames: 'static/js/[name]-[hash].js',
+                    entryFileNames: 'static/js/[name]-[hash].js',
+                    assetFileNames: 'static/[ext]/[name]-[hash].[ext]'
+                }
+            }
         },
         resolve: {
             alias: {
                 '@': path.resolve(__dirname, 'src'),
                 '@c': path.resolve(__dirname, 'src/components'),
-                '@views': path.resolve(__dirname, 'src/views')
+                '@views': path.resolve(__dirname, 'src/views'),
+                '@img': path.resolve(__dirname, 'src/assets/img')
             }
         },
         css: {
@@ -61,7 +70,7 @@ export default defineConfig(env => {
         },
         server: {
             open: false,
-            // host: '0.0.0.0',
+            host: '0.0.0.0',
             port: 1111,
             https: false,
             proxy: {

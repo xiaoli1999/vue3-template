@@ -1,11 +1,10 @@
 <template>
+    App
     <router-view />
 </template>
 
 <script lang="ts" setup>
-const a = 's'
 
-console.log(a)
 </script>
 
 <style scoped>
