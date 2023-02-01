@@ -1,0 +1,1 @@
+import{_ as e,o as t,c}from"./index-7c6ae9d9.js";const o={};function r(s,n){return t(),c("div",null,"\u6D4B\u8BD5")}const a=e(o,[["render",r],["__file","D:/Demos/\u6A21\u677F/vue3-templete/src/views/About.vue"]]);export{a as default};
