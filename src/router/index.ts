@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { routes } from './routes'
 import progress from '../tools/config/progress'
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(), /* 无# createWebHistory() */
     routes
 })
 
